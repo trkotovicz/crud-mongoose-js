@@ -23,4 +23,4 @@ const main = async () => {
   await Universities.insertMany(universities);
 };
 
-main();
+module.exports = main;
