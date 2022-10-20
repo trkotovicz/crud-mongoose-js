@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-computed-key */
 const { StatusCodes } = require('http-status-codes');
 const University = require('../models/University');
 
@@ -41,4 +42,24 @@ const update = async (id, data) => {
   return university;
 };
 
-module.exports = { listAll, getById, deleteById, update };
+const checkIfExists = async (data) => {
+  const university = await University.findOne({
+    name: data.name,
+    country: data.country,
+    ['state-province']: data['state-province'],
+  });
+  if (university) {
+    const error = new Error('University already exists');
+    error.name = 'ConflictError';
+    error.status = StatusCodes.CONFLICT;
+    throw error;
+  }
+};
+
+const create = async (data) => {
+  await checkIfExists(data);
+  const university = await University.create(data);
+  return university;
+};
+
+module.exports = { listAll, getById, deleteById, update, create };

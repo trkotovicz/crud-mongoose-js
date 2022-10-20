@@ -6,6 +6,7 @@ const validateCreate = (data) => {
     alpha_two_code: joi.string().length(2).required(),
     web_pages: joi.array().items(joi.string()).required(),
     name: joi.string().required(),
+    country: joi.string().required(),
     domains: joi.array().items(joi.string()).required(),
     'state-province': joi.string().length(2),
   });
