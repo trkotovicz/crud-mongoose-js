@@ -3,6 +3,7 @@ const universityController = require('../controllers/University');
 
 const router = Router();
 
-router.get('/universities', () => console.log(universityController));
+router.get('/universities', universityController.list);
+router.get('/universities/:id', universityController.getById);
 
 module.exports = router;
