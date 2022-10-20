@@ -1,5 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
 const universityService = require('../services/University');
+const { validateUpdate } = require('../utils/validations');
 
 module.exports = {
 
@@ -19,5 +20,11 @@ module.exports = {
     await universityService.deleteById(id);
     res.status(StatusCodes.NO_CONTENT).end();
   },
-  
+
+  update: async (req, res) => {
+    const { body, params } = req;
+    validateUpdate(body);
+    const university = await universityService.update({ _id: params.id }, body);
+    res.status(StatusCodes.ACCEPTED).json(university);
+  },
 };
