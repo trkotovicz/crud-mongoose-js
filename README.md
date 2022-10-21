@@ -1,6 +1,6 @@
 # API REST Bis2Bis
 
-API Rest criada como teste técnico no processo seletivo da Bis2Bis E-commerce, para vaga de desenvolvedor Node.Js.</br>
+API Rest criada como teste técnico no processo seletivo da Bis2Bis E-commerce, para vaga de desenvolvedor Back-End Node.Js.</br>
 Para o desenvolvimento dessa API, foi utilizado Node.Js com Express e, o banco de dados não relacional MongoDB com Mongoose.</br>
 Utiliza a arquitetura de camadas MSC (**M**odell-**S**ervice-**C**ontroller).
 A API tem como objetivo listar, editar, criar e deletar (CRUD) universidades cadastradas no banco de dados.
