@@ -11,14 +11,11 @@ const listAll = async (page) => {
 };
 
 const getByCountry = async (country, page) => {
-  const universities = await University.find({ country }).skip(page).limit(20);
-  return {
-    _id: universities._id,
-    name: universities.name,
-    country: universities.country,
-    'state-province': universities['state-province'],
-  };
-  // return universities;
+  const universities = await University.find(
+    { country },
+    { _id: 1, name: 1, country: 1, 'state-province': 1 },
+    ).skip(page).limit(20);
+  return universities;
 };
 
 const getById = async (id) => {
