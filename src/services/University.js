@@ -1,12 +1,24 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-useless-computed-key */
 const { StatusCodes } = require('http-status-codes');
 const University = require('../models/University');
 
 const notFoundMessage = 'University Not Found';
 
-const listAll = async () => {
-  const universities = await University.find({});
+const listAll = async (page) => {
+  const universities = await University.find({}).limit(20).skip(page);
   return universities;
+};
+
+const getByCountry = async (country, page) => {
+  const universities = await University.find({ country }).skip(page).limit(20);
+  return {
+    _id: universities._id,
+    name: universities.name,
+    country: universities.country,
+    'state-province': universities['state-province'],
+  };
+  // return universities;
 };
 
 const getById = async (id) => {
@@ -62,4 +74,4 @@ const create = async (data) => {
   return university;
 };
 
-module.exports = { listAll, getById, deleteById, update, create };
+module.exports = { listAll, getById, deleteById, update, create, getByCountry };

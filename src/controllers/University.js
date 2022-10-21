@@ -4,8 +4,13 @@ const { validateUpdate, validateCreate } = require('../utils/validations');
 
 module.exports = {
 
-  listAll: async (_req, res) => {
-    const result = await universityService.listAll();
+  getByCountry: async (req, res) => {
+    const { q, page } = req.query;
+    if (!q || q === '') {
+      const listAll = await universityService.listAll(page);
+      res.status(StatusCodes.OK).json(listAll);
+    }
+    const result = await universityService.getByCountry(q, page);
     res.status(StatusCodes.OK).json(result);
   },
 
