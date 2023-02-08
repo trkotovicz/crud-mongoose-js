@@ -1,7 +1,6 @@
-# API REST Bis2Bis
+# CRUD - Mongoose e JS
 
-API Rest criada como teste técnico no processo seletivo da Bis2Bis E-commerce, para vaga de desenvolvedor Back-End Node.Js.</br>
-Para o desenvolvimento dessa API, foi utilizado Node.Js com Express e, o banco de dados não relacional MongoDB com Mongoose.</br>
+API Rest criada em Node.Js com Express, banco de dados não relacional MongoDB com Mongoose.</br>
 Utiliza a arquitetura de camadas MSC (**M**odell-**S**ervice-**C**ontroller).
 A API tem como objetivo listar, editar, criar e deletar (CRUD) universidades cadastradas no banco de dados.
 
@@ -9,9 +8,9 @@ A API tem como objetivo listar, editar, criar e deletar (CRUD) universidades cad
 
 Certifique-se de ter o Docker e o Docker Compose instalados em seu computador.
 
-1. Clone o repositório `git@github.com:trkotovicz/api-rest-bis2bis.git`
+1. Clone o repositório `git@github.com:trkotovicz/crud-mongoose-js.git`
 2. Entre na pasta do projeto e rode o comando `docker-compose up -d`
-3. Abra o terminal do container `bis2bis` com o comando `docker container attach bis2bis`, ou se prefirir, acesse o terminal pelo Docker Desktop.
+3. Abra o terminal do container `api` com o comando `docker container attach api`, ou se prefirir, acesse o terminal pelo Docker Desktop.
 4. Suba a aplicação com `npm start`
 
 O servidor vai estar rodando na porta local 3001 (http://localhost:3001).
